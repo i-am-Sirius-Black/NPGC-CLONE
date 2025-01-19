@@ -19,28 +19,56 @@ const resources = [
   { src: Cvfs, label: "Centre for Vocational and Futuristic Studies", link:"https://www.npgc.in/Academics-CVFS.aspx"},
 ];
 
+// const Resources = () => {
+//   return (
+//    <div className="container mx-auto">
+//      {/* <div className="flex flex-wrap justify-around items-center gap-8 bg-white py-12 px-4"> */}
+//      <div className="grid grid-cols-6 gap-y-2 gap-x-4 justify-items-center bg-white py-8 px-4">
+//       {resources.map((link, index) => (
+//         <a
+//           key={index}
+//           href={link.link}
+//           target="_blank"
+//           rel="noopener noreferrer"
+//           className="text-center w-32"
+//         >
+//           <img
+//             src={link.src}
+//             alt={link.label}
+//             className="w-36 h-36 mx-auto mb-2 opacity-70 hover:scale-105 transition-transform duration-200"
+//           />
+//         </a>
+//       ))}
+//     </div>
+//    </div>
+//   );
+// };
+
+// export default Resources;
+
+
 const Resources = () => {
   return (
-   <div className="container mx-auto">
-     {/* <div className="flex flex-wrap justify-around items-center gap-8 bg-white py-12 px-4"> */}
-     <div className="grid grid-cols-6 gap-y-2 gap-x-4 justify-items-center bg-white py-8 px-4">
-      {resources.map((link, index) => (
-        <a
-          key={index}
-          href={link.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-center w-32"
-        >
-          <img
-            src={link.src}
-            alt={link.label}
-            className="w-36 h-36 mx-auto mb-2 opacity-70 hover:scale-105 transition-transform duration-200"
-          />
-        </a>
-      ))}
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-y-4 gap-x-4 justify-items-center bg-white py-6 sm:py-8">
+        {resources.map((link, index) => (
+          <a
+            key={index}
+            href={link.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center w-20 sm:w-32"
+          >
+            <img
+              src={link.src}
+              alt={link.label}
+              className="w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 mx-auto mb-2 opacity-70 hover:scale-105 transition-transform duration-200"
+            />
+            <p className="text-xs sm:text-sm">{link.label}</p>
+          </a>
+        ))}
+      </div>
     </div>
-   </div>
   );
 };
 
