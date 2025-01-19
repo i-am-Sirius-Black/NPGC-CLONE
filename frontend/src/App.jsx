@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/">
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<Login />} />
