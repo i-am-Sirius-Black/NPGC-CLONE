@@ -52,8 +52,45 @@ export const addData = async (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     }
 };
-  
 
+export const updateData = async (req, res) => {
+  try {
+    const { section, id } = req.params;
+    const updateData = req.body;
+
+    if (!Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "Invalid ID format" });
+    }
+
+    console.log("Attempting to update document with query:", {
+      [`${section}._id`]: id
+    });
+
+    const result = await Data.findOneAndUpdate(
+      { [`${section}._id`]: id },
+      {
+        $set: {
+          [`${section}.$`]: { ...updateData, _id: id }
+        }
+      },
+      { new: true }
+    );
+
+
+    if (!result) {
+      return res.status(404).json({ error: "Item not found" });
+    }
+
+    res.json({
+      message: `Item in ${section} updated successfully`,
+      updatedData: result[section]
+    });
+  } catch (err) {
+    console.error("Error in updateData:", err);
+    res.status(500).json({ error: err.message });
+  }
+};
+  
 
 export const deleteData = async (req, res) => {
   try {

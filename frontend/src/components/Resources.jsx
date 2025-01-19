@@ -19,34 +19,6 @@ const resources = [
   { src: Cvfs, label: "Centre for Vocational and Futuristic Studies", link:"https://www.npgc.in/Academics-CVFS.aspx"},
 ];
 
-// const Resources = () => {
-//   return (
-//    <div className="container mx-auto">
-//      {/* <div className="flex flex-wrap justify-around items-center gap-8 bg-white py-12 px-4"> */}
-//      <div className="grid grid-cols-6 gap-y-2 gap-x-4 justify-items-center bg-white py-8 px-4">
-//       {resources.map((link, index) => (
-//         <a
-//           key={index}
-//           href={link.link}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className="text-center w-32"
-//         >
-//           <img
-//             src={link.src}
-//             alt={link.label}
-//             className="w-36 h-36 mx-auto mb-2 opacity-70 hover:scale-105 transition-transform duration-200"
-//           />
-//         </a>
-//       ))}
-//     </div>
-//    </div>
-//   );
-// };
-
-// export default Resources;
-
-
 const Resources = () => {
   return (
     <div className="container mx-auto px-4">
