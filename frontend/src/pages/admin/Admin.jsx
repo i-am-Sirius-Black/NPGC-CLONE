@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { TextField, Button, IconButton } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Admin = () => {
   const [data, setData] = useState({ quickLinks: [], notices: [], events: [], tenders: [] });
@@ -11,7 +11,7 @@ const Admin = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/admin/");
+      const response = await axios.get(`${API_URL}/api/admin/`);
       console.log("response data: ",response.data);
       setData(response.data || { quickLinks: [], notices: [], events: [], tenders: [] });
     } catch (error) {
@@ -27,7 +27,7 @@ const Admin = () => {
 
     try {
       const payload = { [type]: [newEntry] };
-      await axios.post(`http://localhost:8080/api/admin/${type}`, payload);
+      await axios.post(`${API_URL}/api/admin/${type}`, payload);
       setNewEntry({ title: "", url: "", date: "", time: "" });
       fetchData();
     } catch (error) {
@@ -38,7 +38,7 @@ const Admin = () => {
   const deleteData = async (id) => {
     console.log("Deleting data with id:", id);
     try {
-      await axios.delete(`http://localhost:8080/api/admin/${type}/${id}`);
+      await axios.delete(`${API_URL}/api/admin/${type}/${id}`);
       fetchData();
     } catch (error) {
       console.error("Error deleting data:", error);

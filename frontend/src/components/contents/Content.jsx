@@ -9,6 +9,7 @@ import ETenders from "./ETenders";
 import VisionMission from "./VisionMission";
 import VideoTour from "./VideoTour";
 import axios from "axios";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Content = () => {
   const [quickLinks, setQuickLinks] = useState([]);
@@ -18,7 +19,7 @@ const Content = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/admin/");
+      const response = await axios.get(`${API_URL}/api/admin/`);
       
       const { quickLinks = [], notices = [], events = [], tenders = [] } = response.data || {};
       setQuickLinks(quickLinks);
